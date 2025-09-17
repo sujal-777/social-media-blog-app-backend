@@ -14,7 +14,7 @@ const blogModelSchema = new Schema({
     },
     image : {
         type: String,
-        required : true,
+        // required : true,
     },
     user :{
         type : mongoose.Types.ObjectId,

@@ -4,7 +4,7 @@ import { addBlog, deleteBlog, getAllBlogs, getById, getByUserId, updateBlog } fr
 const blogRouter = express.Router();
 
 blogRouter.get("/",getAllBlogs);
-blogRouter.get("/add",addBlog);
+blogRouter.post("/add",addBlog);
 blogRouter.put('/update/:id',updateBlog);
 blogRouter.get("/:id",getById);
 blogRouter.delete("/:id",deleteBlog);

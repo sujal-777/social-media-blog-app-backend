@@ -2,6 +2,8 @@
 // import blog from "../model/blog.js";
 import Blog from "../model/blog.js"; 
 import User from "../model/User.js"; 
+// import blogModel from  "../model/Blog-model.js"
+import mongoose from "mongoose"; 
 
 
 
@@ -51,7 +53,7 @@ export const addBlog = async (req, res, next) => {
         console.log(err);
         return res.json(500).json({message : err})
     }
-    return res.status(200).json({Blog})
+    return res.status(200).json({blog})
 };
 
 export const updateBlog = async(req, res, next) => {
@@ -79,16 +81,16 @@ export const updateBlog = async(req, res, next) => {
 
 export const getById = async (req, res, next) => {
     const id = req.params.id;
-    let blog;
+    let blogs;
     try {
-        blog = await blogModel.findById(id);
+        blogs = await Blog.findById(id);
     } catch (err) {
         return console.log(err);
     }
-    if ( !blog) {
+    if ( !blogs) {
         return res.status(404).json({message: "No Blog Found"});
     }
-    return res.status(200).json({blog});
+    return res.status(200).json({blogs});
 };
 
 export const deleteBlog = async (req,res, next) => {
